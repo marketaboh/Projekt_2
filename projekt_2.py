@@ -13,13 +13,19 @@ print("Let's play a bulls and cows game.")
 print("-----------------------------------------------")
 
 def check_is_number(input):
-    if input.isdigit() and len(input) == 4 and input[0] != '0':
+    if input.isdigit() and len(set(input)) == 4 and input[0] != '0':
         return input
-    elif input[0] == '0':
+    elif input.isdigit() and input[0] == '0':
         print("Please enter a 4 digit number without leading zeros.")
         return False
-    else:
+    elif input.isdigit() and len(input) != 4:
         print("Please enter a 4 digit number.")
+        return False
+    elif  input.isdigit() and len(set(input)) != 4:
+        print("Please enter a 4 digit number with unique digits.")
+        return False
+    else:
+        print("Please enter a number.")
         return False
     
 # generate a random 4 digit number
