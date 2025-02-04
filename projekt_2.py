@@ -5,6 +5,7 @@ author: Markéta Boháčková
 email: bohackovama@gmail.com
 """
 import random
+import time
 
 def check_input(input:str)->bool:
     """ function checks if the input is a 4 digit number with unique digits 
@@ -47,12 +48,12 @@ def play_bulls_and_cows():
     print("-" * 50)
     random_number = generate_unique_digit_number() # Generate a random 4 digit number
     random_number = str(random_number)
-    print("Random číslo: ",random_number)
     attempts = 1 # Number of guesses
 
     # Loop until a valid input is entered 
     while True:
         user_input = input("Enter a number: ")
+        start_time = time.time()  # Record the start time
         if check_input(user_input):
             break  # Exit the loop if input is valid
     print("-" * 50)
@@ -73,8 +74,10 @@ def play_bulls_and_cows():
             if check_input(user_input):
                 break
         continue      
-    
+    end_time = time.time()  # Record the end time
+    elapsed_time = int(end_time - start_time)  # Calculate the elapsed time
     print(f"Correct, you've guessed the right number in {attempts} guess{'es' if attempts != 1 else ''}!")
+    print(f"It took you {elapsed_time} seconds.")
     print("-" * 50)
     print("That's amazing!")
 
