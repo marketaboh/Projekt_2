@@ -7,7 +7,7 @@ email: bohackovama@gmail.com
 import random
 import time
 
-def check_input(input:str)->bool:
+def check_input(input: str) -> bool:
     """ function checks if the input is a 4 digit number with unique digits 
     and returns True if the input is valid, otherwise returns False 
     and prints an error message 
